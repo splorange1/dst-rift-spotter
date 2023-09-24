@@ -10,14 +10,14 @@ Assets = {
 AddClassPostConstruct("widgets/mapwidget", function(self)
 	local ImageButton = require "widgets/imagebutton"
 	if (GLOBAL.TheWorld:HasTag("forest")) then
-		self.button = self:AddChild(ImageButton("image/lunarbadge.xml", "lunarbadge.tex"))
+		self.riftspotterbutton = self:AddChild(ImageButton("image/lunarbadge.xml", "lunarbadge.tex"))
 	
-		self.button:SetScale(0.8,0.8,0.8)
-		self.button:SetPosition(1835,200,0) --1835
+		self.riftspotterbutton:SetScale(0.8,0.8,0.8)
+		self.riftspotterbutton:SetPosition(1835,200,0) --1835
 
-		self.button:SetOnClick(function() self:OnClickButton() end)
+		self.riftspotterbutton:SetOnClick(function() self.riftspotterbutton:OnClickButton() end)
 
-		function self:OnClickButton()
+		function self.riftspotterbutton:OnClickButton()
 			local w = GLOBAL.TheWorld.Map:GetSize()*4
 			local h = GLOBAL.TheWorld.Map:GetSize()*4
 			local riftFound = false
