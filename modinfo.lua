@@ -1,6 +1,6 @@
 name = "Rift Spotter"
 --The name of your mod
-description = "Spots Rifts"
+description = "Spots lower-level lunar rifts using a button on the map"
 --The description that shows when you are selecting the mod from the list
 author = "splorange"
 --Your name!
