@@ -1,4 +1,6 @@
 --rift spotter
+local ImageButton = require "widgets/imagebutton"
+local Text = require "widgets/text"
 
 Assets = {
 	Asset("ATLAS","image/lunarbadge.xml"),
@@ -8,12 +10,13 @@ Assets = {
 }
 
 AddClassPostConstruct("widgets/mapwidget", function(self)
-	local ImageButton = require "widgets/imagebutton"
 	if (GLOBAL.TheWorld:HasTag("forest")) then
 		self.riftspotterbutton = self:AddChild(ImageButton("image/lunarbadge.xml", "lunarbadge.tex"))
 	
 		self.riftspotterbutton:SetScale(0.8,0.8,0.8)
-		self.riftspotterbutton:SetPosition(1835,200,0) --1835
+		self.riftspotterbutton:SetVAnchor(GLOBAL.ANCHOR_BOTTOM)
+		self.riftspotterbutton:SetHAnchor(GLOBAL.ANCHOR_RIGHT)
+		self.riftspotterbutton:SetPosition(-85,200,0) --1835
 
 		self.riftspotterbutton:SetOnClick(function() self.riftspotterbutton:OnClickButton() end)
 
@@ -25,8 +28,7 @@ AddClassPostConstruct("widgets/mapwidget", function(self)
 			local rifty
 			for i = (GLOBAL.TheWorld.Map:GetSize())*-4, w, 4 do 
 				for j = (GLOBAL.TheWorld.Map:GetSize())*-4, h, 4 do
-					if (GLOBAL.TheWorld.Map:GetTileAtPoint(i, 0, j) == 265) then -- GLOBAL.TheWorld.Map:GetTileAtPoint(i, 0, j) == 263 or shadow rift type
-						--print("RIFT TURF DETECTED AT COORDINATE ("..i..","..j..")")
+					if (GLOBAL.TheWorld.Map:GetTileAtPoint(i, 0, j) == 265) then
 						riftx = i
 						rifty = j
 						riftFound = true
@@ -42,8 +44,15 @@ AddClassPostConstruct("widgets/mapwidget", function(self)
 				else
 					GLOBAL.ThePlayer.HUD.controls:ShowMap(GLOBAL.Vector3(riftx, 0, rifty))
 				end
+				if self.rifttext then
+					self.rifttext:SetString("")
+				end
 			else
-				print("Rift Not Found")
+				if self.rifttext == nil then
+					self.rifttext = self:AddChild(Text(GLOBAL.TITLEFONT, 40, "No Rift Found!"))
+					self.rifttext:SetPosition(0,90,0)
+					print("Rift Not Found")
+				end
 			end
 		end
 	end

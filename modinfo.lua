@@ -1,4 +1,4 @@
-name = "Rift Spotter"
+name = "Lunar Rift Spotter"
 --The name of your mod
 description = "Spots lower-level lunar rifts using a button on the map"
 --The description that shows when you are selecting the mod from the list
