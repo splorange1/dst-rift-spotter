@@ -4,7 +4,7 @@ description = "Spots lower-level lunar rifts using a button on the map"
 --The description that shows when you are selecting the mod from the list
 author = "splorange"
 --Your name!
-version = "1.0"
+version = "1.1"
 
 forumthread = ""
 
