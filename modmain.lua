@@ -28,7 +28,7 @@ AddClassPostConstruct("widgets/mapwidget", function(self)
 			local rifty
 			for i = (GLOBAL.TheWorld.Map:GetSize())*-4, w, 4 do 
 				for j = (GLOBAL.TheWorld.Map:GetSize())*-4, h, 4 do
-					if (GLOBAL.TheWorld.Map:GetTileAtPoint(i, 0, j) == 265) then
+					if (GLOBAL.TheWorld.Map:GetTileAtPoint(i, 0, j) == 266) then
 						riftx = i
 						rifty = j
 						riftFound = true
